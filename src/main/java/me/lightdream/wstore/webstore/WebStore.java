@@ -163,7 +163,7 @@ public class WebStore {
 
 		ArrayList<Order> orders = new ArrayList<>();
 
-		String json = HTTPRequest.readUrl(API + "/orders/queue/" + key);
+		String json = HTTPRequest.readUrl(API + "/orders/queue/commands/" + key);
 
 		if (json.startsWith("{\"status\":\"100\"")){
 			orders = (ArrayList<Order>) ((gson.fromJson(json, PaymentRequestResponse.class)).orders);
@@ -173,7 +173,7 @@ public class WebStore {
 	}
 
 	public void completePayments() throws Exception {
-		HTTPRequest.openUrl(API + "/orders/complete/" + key);
+		HTTPRequest.openUrl(API + "/orders/complete/commands/" + key);
 	}
 
 	public String getKey() {
